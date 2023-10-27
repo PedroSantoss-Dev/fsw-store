@@ -22,7 +22,7 @@ export default async function Home() {
   });
 
   return (
-    <div>
+    <main className="flex flex-col gap-8">
       <PromoBanner
         src="/banner-home-01.png"
         height={0}
@@ -53,6 +53,12 @@ export default async function Home() {
         <SectionTitle>Teclados</SectionTitle>
         <ProductList products={keyboards} />
       </div>
-    </div>
+      <div>
+        <PromoBanner
+          src="/banner-home-03.png"
+          alt="Até 55% de desconto em mouses!"
+        />
+      </div>
+    </main>
   );
 }
