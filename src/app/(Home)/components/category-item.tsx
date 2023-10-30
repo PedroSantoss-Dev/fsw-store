@@ -1,27 +1,33 @@
-import { Badge } from "@/components/ui/badge";
 import { Category } from "@prisma/client";
-import { HeadphonesIcon, KeyboardIcon, MonitorIcon, MouseIcon, SpeakerIcon, SquareIcon } from "lucide-react";
+import Image from "next/image";
 
 interface CategoryItemProps {
-    category: Category
+  category: Category;
 }
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
-    const categoryIcon = {
-      keyboards: <KeyboardIcon size={16} />,
-      monitors: <MonitorIcon size={16} />,
-      headphones: <HeadphonesIcon size={16} />,
-      mousepads: <SquareIcon size={16} />,
-      speakers: <SpeakerIcon size={16} />,
-      mouses: <MouseIcon size={16} />,
-    };
-    return ( 
-        <Badge variant="outline" className=" flex items-center justify-center gap-2 rounded-lg py-3 lg:w-44">
-                {categoryIcon[category.slug as keyof typeof categoryIcon]}
-             <span className=" text-xs font-bold">{ category.name}</span>
-        </Badge>
-     );
-}
+  return (
+    <div className="flex flex-col">
+      <div className="bg-category-item-gradient flex h-[150px] w-full items-center justify-center rounded-tl-lg rounded-tr-lg lg:w-44">
+        {/* IMAGEM */}
+        <Image
+          src={category.imageUrl}
+          alt={category.name}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="h-auto max-h-[70%] w-auto max-w-[80%]"
+          style={{
+            objectFit: "contain",
+          }}
+        />
+      </div>
 
+      <div className="rounded-bl-lg rounded-br-lg bg-accent py-3">
+        <p className="text-center text-sm font-semibold">{category.name}</p>
+      </div>
+    </div>
+  );
+};
 
 export default CategoryItem;
