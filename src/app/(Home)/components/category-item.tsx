@@ -16,7 +16,7 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
       mouses: <MouseIcon size={16} />,
     };
     return ( 
-        <Badge variant="outline" className=" flex items-center justify-center gap-2 rounded-lg py-3">
+        <Badge variant="outline" className=" flex items-center justify-center gap-2 rounded-lg py-3 lg:w-44">
                 {categoryIcon[category.slug as keyof typeof categoryIcon]}
              <span className=" text-xs font-bold">{ category.name}</span>
         </Badge>
