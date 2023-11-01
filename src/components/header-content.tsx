@@ -44,10 +44,12 @@ const HeaderContent = ({ status, data, handleLoginClick, handleLogoutClick }: He
             )}
 
             <div className="mt-4 flex flex-col gap-2 lg:flex-row">
-                <Button variant="outline" className="w-full justify-start gap-2 lg:border-0 ">
-                    <HomeIcon size={16} />
-                    Início
-                </Button>
+                <Link href="/">
+                    <Button variant="outline" className="w-full justify-start gap-2 lg:border-0 ">
+                        <HomeIcon size={16} />
+                        Início
+                    </Button>
+                </Link>
                 <Button variant="outline" className="w-full justify-start gap-2 lg:border-0 ">
                     <PercentIcon size={16} />
                     Ofertas
