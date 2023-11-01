@@ -1,11 +1,12 @@
 "use client";
 
-import { MenuIcon, ShoppingCartIcon } from "lucide-react";
+import { ListOrderedIcon, MenuIcon, ShoppingCartIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "./ui/sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import HeaderContent from "./header-content";
+import Link from "next/link";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -34,6 +35,7 @@ const Header = () => {
 
             <HeaderContent status={status} data={data} handleLoginClick={handleLoginClick} handleLogoutClick={handleLogoutClick} />
           </SheetContent>
+
         </Sheet>
       </div>
       <h1 className="text-lg font-semibold">
@@ -47,7 +49,7 @@ const Header = () => {
       <Button size="icon" variant="outline">
         <ShoppingCartIcon />
       </Button>
-      
+
     </Card>
   );
 };

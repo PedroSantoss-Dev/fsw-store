@@ -10,6 +10,8 @@ import { Avatar, AvatarImage } from "./ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import { Session } from "next-auth";
 import { Button } from "./ui/button";
+import Link from "next/link";
+import { SheetClose } from "./ui/sheet";
 
 interface HeaderContentProps {
     status: "authenticated" | "loading" | "unauthenticated"
@@ -37,7 +39,7 @@ const HeaderContent = ({ status, data, handleLoginClick, handleLogoutClick }: He
                         </div>
                     </div>
 
-                    <Separator  className=" lg:hidden" />
+                    <Separator className=" lg:hidden" />
                 </div>
             )}
 
@@ -50,10 +52,16 @@ const HeaderContent = ({ status, data, handleLoginClick, handleLogoutClick }: He
                     <PercentIcon size={16} />
                     Ofertas
                 </Button>
-                <Button variant="outline" className="w-full justify-start gap-2 lg:border-0 ">
-                    <ListOrderedIcon size={16} />
-                    Catálogo
-                </Button>
+
+                <Link href="/catalog">
+                    <Button
+                        variant="outline"
+                        className="w-full justify-start gap-2 lg:border-0"
+                    >
+                        <ListOrderedIcon size={16} />
+                        Catálogo
+                    </Button>
+                </Link>
                 {status === "unauthenticated" && (
                     <Button
                         onClick={handleLoginClick}
